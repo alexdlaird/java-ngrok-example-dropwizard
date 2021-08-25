@@ -1,6 +1,6 @@
-package com.github.alexdlaird;
+package com.github.alexdlaird.ngrok.example.dropwizard;
 
-import com.github.alexdlaird.conf.JavaNgrokExampleDropwizardConfiguration;
+import com.github.alexdlaird.ngrok.example.dropwizard.conf.JavaNgrokExampleDropwizardConfiguration;
 import com.github.alexdlaird.ngrok.NgrokClient;
 import com.github.alexdlaird.ngrok.conf.JavaNgrokConfig;
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;

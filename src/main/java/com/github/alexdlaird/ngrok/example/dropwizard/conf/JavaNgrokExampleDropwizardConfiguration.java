@@ -1,4 +1,4 @@
-package com.github.alexdlaird.conf;
+package com.github.alexdlaird.ngrok.example.dropwizard.conf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
