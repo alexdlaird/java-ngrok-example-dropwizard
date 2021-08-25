@@ -1,0 +1,7 @@
+ngrok:
+  enabled: true
+
+logging:
+  level: INFO
+  loggers:
+    com.github.alexdlaird: DEBUG
