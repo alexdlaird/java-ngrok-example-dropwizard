@@ -34,7 +34,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
 
     @Override
     public void initialize(final Bootstrap<JavaNgrokExampleDropwizardConfiguration> bootstrap) {
-        // TODO: application initialization
+        // ... Initialize our Dropwizard application
     }
 
     @Override
@@ -63,7 +63,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
             initWebhooks(tunnel.getPublicUrl());
         }
 
-        // TODO: implement application
+        // ... The rest of our Dropwizard application
     }
 
     private int getPort(JavaNgrokExampleDropwizardConfiguration configuration) {
