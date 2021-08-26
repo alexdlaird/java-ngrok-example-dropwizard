@@ -5,7 +5,7 @@ SHELL := /usr/bin/env bash
 all: build
 
 build:
-	mvn build
+	mvn install
 
 clean:
 	mvn clean
