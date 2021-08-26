@@ -68,7 +68,7 @@ ngrok:
 
 ## Application Integration
 
-If `ngrok.enabled` config flag is set, we want to initialize pyngrok when Dropwizard is booting. An easy place to do
+If `ngrok.enabled` config flag is set, we want to initialize `java-ngrok` when Dropwizard is booting. An easy place to do
 this is in the `run()` method of [the Application](https://github.com/alexdlaird/java-ngrok-example-dropwizard/blob/main/src/main/java/com/github/alexdlaird/JavaNgrokExampleDropwizardApplication.java).
 
 ```java
@@ -123,8 +123,8 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
 }
 ```
 
-Now Dropwizard  can be started by the usual means, setting `ngrok.enabled` in the config to open a tunnel.
+Now Dropwizard can be started by the usual means, setting `ngrok.enabled` in the config to open a tunnel.
 
-1. Run `mvn clean install` to build the application
+1. Run `make install` to build the application
 1. Start application with `java -jar target/java-ngrok-example-dropwizard-1.0.0-SNAPSHOT.jar server config.yml`
 1. Check the logs for the `ngrok` tunnel's public URL, which should tunnel to  `http://localhost:8080`
