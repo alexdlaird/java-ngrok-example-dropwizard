@@ -10,8 +10,5 @@ build:
 clean:
 	mvn clean
 
-install:
-	mvn install
-
 test:
 	mvn test
