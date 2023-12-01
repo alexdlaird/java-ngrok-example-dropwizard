@@ -18,6 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <dropwizard.version>2.1.5</dropwizard.version>
         <java-ngrok.version>2.2.4</java-ngrok.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <mainClass>com.github.alexdlaird.ngrok.example.dropwizard.JavaNgrokExampleDropwizardApplication</mainClass>
     </properties>
 
@@ -55,6 +56,11 @@
             <groupId>com.github.alexdlaird</groupId>
             <artifactId>java-ngrok</artifactId>
             <version>${java-ngrok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
         </dependency>
     </dependencies>
 
