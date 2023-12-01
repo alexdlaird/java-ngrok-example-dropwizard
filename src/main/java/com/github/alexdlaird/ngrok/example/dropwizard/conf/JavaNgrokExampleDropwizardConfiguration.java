@@ -24,7 +24,7 @@
 package com.github.alexdlaird.ngrok.example.dropwizard.conf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.dropwizard.Configuration;
+import io.dropwizard.core.Configuration;
 
 public class JavaNgrokExampleDropwizardConfiguration extends Configuration {
 
