@@ -26,6 +26,7 @@ package com.github.alexdlaird.ngrok.example.dropwizard;
 import com.github.alexdlaird.ngrok.example.dropwizard.conf.JavaNgrokExampleDropwizardConfiguration;
 import com.github.alexdlaird.ngrok.NgrokClient;
 import com.github.alexdlaird.ngrok.conf.JavaNgrokConfig;
+import com.github.alexdlaird.ngrok.example.dropwizard.healthcheck.ServerHealthCheck;
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;
 import com.github.alexdlaird.ngrok.protocol.Region;
 import com.github.alexdlaird.ngrok.protocol.Tunnel;
@@ -58,6 +59,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
     @Override
     public void initialize(final Bootstrap<JavaNgrokExampleDropwizardConfiguration> bootstrap) {
         // ... Initialize our Dropwizard application
+        bootstrap.getHealthCheckRegistry().register("server", new ServerHealthCheck());
     }
 
     @Override

@@ -126,5 +126,5 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
 Now Dropwizard can be started by the usual means, setting `ngrok.enabled` in the config to open a tunnel.
 
 1. Run `make build` to build the application
-1. Start application with `java -jar target/java-ngrok-example-dropwizard-1.0.0-SNAPSHOT.jar server config.yml`
+1. Start application with `java -jar target/java-ngrok-example-dropwizard-1.0.0-SNAPSHOT.jar server src/main/resources/config.yml`
 1. Check the logs for the `ngrok` tunnel's public URL, which should tunnel to  `http://localhost:8080`

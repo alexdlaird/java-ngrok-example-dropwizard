@@ -56,6 +56,12 @@
             <artifactId>java-ngrok</artifactId>
             <version>${java-ngrok.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-testing</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
