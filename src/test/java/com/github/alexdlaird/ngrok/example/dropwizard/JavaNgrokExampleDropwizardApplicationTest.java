@@ -36,16 +36,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(DropwizardExtensionsSupport.class)
 class JavaNgrokExampleDropwizardApplicationTest {
-    private static DropwizardAppExtension<JavaNgrokExampleDropwizardConfiguration> EXT = new DropwizardAppExtension<>(
+    private final static DropwizardAppExtension<JavaNgrokExampleDropwizardConfiguration> EXT = new DropwizardAppExtension<>(
             JavaNgrokExampleDropwizardApplication.class,
             ResourceHelpers.resourceFilePath("config.yml")
     );
 
     @Test
-    void testHealthCheck() {
-        Client client = EXT.client();
+    public void testHealthCheck() {
+        final Client client = EXT.client();
 
-        Response response = client.target(
+        final Response response = client.target(
                         String.format("http://127.0.0.1:%d/healthcheck", EXT.getAdminPort()))
                 .request()
                 .get();
