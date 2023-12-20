@@ -30,6 +30,8 @@ import com.github.alexdlaird.ngrok.example.dropwizard.healthcheck.ServerHealthCh
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;
 import com.github.alexdlaird.ngrok.protocol.Region;
 import com.github.alexdlaird.ngrok.protocol.Tunnel;
+import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
+import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.core.Application;
 import io.dropwizard.core.server.DefaultServerFactory;
 import io.dropwizard.core.server.SimpleServerFactory;
@@ -60,6 +62,12 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
     public void initialize(final Bootstrap<JavaNgrokExampleDropwizardConfiguration> bootstrap) {
         // ... Initialize our Dropwizard application
         bootstrap.getHealthCheckRegistry().register("server", new ServerHealthCheck());
+        // Enable variable substitution with environment variables
+        bootstrap.setConfigurationSourceProvider(
+                new SubstitutingSourceProvider(
+                        bootstrap.getConfigurationSourceProvider(),
+                        new EnvironmentVariableSubstitutor())
+        );
     }
 
     @Override
