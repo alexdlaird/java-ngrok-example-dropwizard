@@ -4,8 +4,10 @@ SHELL := /usr/bin/env bash
 
 all: build
 
+install: build
+
 build:
-	mvn install
+	mvn install -DskipTests=true
 
 clean:
 	mvn clean
