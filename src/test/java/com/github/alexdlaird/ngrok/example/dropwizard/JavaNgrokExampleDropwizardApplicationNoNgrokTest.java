@@ -45,6 +45,7 @@ public class JavaNgrokExampleDropwizardApplicationNoNgrokTest {
             ResourceHelpers.resourceFilePath("config.yml"),
             ConfigOverride.config("ngrok.enabled", "false")
     );
+
     @Test
     public void testHealthCheckNoNgrok() {
         final Client client = dropwizardAppExtension.client();
