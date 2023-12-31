@@ -30,17 +30,10 @@ public class NgrokConfiguration {
     private boolean enabled = false;
 
     @JsonProperty
-    private String authToken;
-
-    @JsonProperty
     private String region;
 
     public boolean isEnabled() {
         return enabled;
-    }
-
-    public String getAuthToken() {
-        return authToken;
     }
 
     public String getRegion() {

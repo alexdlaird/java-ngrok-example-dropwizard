@@ -1,6 +1,5 @@
 ngrok:
   enabled: true
-  authToken: ${NGROK_AUTHTOKEN}
 
 logging:
   level: INFO

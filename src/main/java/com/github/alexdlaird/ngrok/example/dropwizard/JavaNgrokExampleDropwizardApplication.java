@@ -62,21 +62,16 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
     public void initialize(final Bootstrap<JavaNgrokExampleDropwizardConfiguration> bootstrap) {
         // ... Initialize our Dropwizard application
         bootstrap.getHealthCheckRegistry().register("server", new ServerHealthCheck());
-        // Enable variable substitution with environment variables
-        bootstrap.setConfigurationSourceProvider(
-                new SubstitutingSourceProvider(
-                        bootstrap.getConfigurationSourceProvider(),
-                        new EnvironmentVariableSubstitutor())
-        );
     }
 
     @Override
     public void run(final JavaNgrokExampleDropwizardConfiguration configuration,
                     final Environment environment) {
         // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
-        if (configuration.getEnvironment().equals("dev") && configuration.getNgrokConfiguration().isEnabled()) {
+        if (configuration.getEnvironment().equals("dev") &&
+                configuration.getNgrokConfiguration().isEnabled() &&
+                System.getenv().containsKey("NGROK_AUTHTOKEN")) {
             final JavaNgrokConfig javaNgrokConfig = new JavaNgrokConfig.Builder()
-                    .withAuthToken(configuration.getNgrokConfiguration().getAuthToken())
                     .withRegion(nonNull(configuration.getNgrokConfiguration().getRegion()) ? Region.valueOf(configuration.getNgrokConfiguration().getRegion().toUpperCase()) : null)
                     .build();
             final NgrokClient ngrokClient = new NgrokClient.Builder()
