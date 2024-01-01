@@ -30,8 +30,6 @@ import com.github.alexdlaird.ngrok.example.dropwizard.healthcheck.ServerHealthCh
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;
 import com.github.alexdlaird.ngrok.protocol.Region;
 import com.github.alexdlaird.ngrok.protocol.Tunnel;
-import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
-import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.core.Application;
 import io.dropwizard.core.server.DefaultServerFactory;
 import io.dropwizard.core.server.SimpleServerFactory;
@@ -44,6 +42,7 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
+import static com.github.alexdlaird.util.StringUtils.isNotBlank;
 
 public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrokExampleDropwizardConfiguration> {
 
@@ -70,7 +69,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
         // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
         if (configuration.getEnvironment().equals("dev") &&
                 configuration.getNgrokConfiguration().isEnabled() &&
-                System.getenv().containsKey("NGROK_AUTHTOKEN")) {
+                isNotBlank(System.getenv("NGROK_AUTHTOKEN"))) {
             final JavaNgrokConfig javaNgrokConfig = new JavaNgrokConfig.Builder()
                     .withRegion(nonNull(configuration.getNgrokConfiguration().getRegion()) ? Region.valueOf(configuration.getNgrokConfiguration().getRegion().toUpperCase()) : null)
                     .build();
