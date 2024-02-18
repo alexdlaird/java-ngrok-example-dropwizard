@@ -30,11 +30,11 @@ import com.github.alexdlaird.ngrok.example.dropwizard.healthcheck.ServerHealthCh
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;
 import com.github.alexdlaird.ngrok.protocol.Region;
 import com.github.alexdlaird.ngrok.protocol.Tunnel;
-import io.dropwizard.core.Application;
-import io.dropwizard.core.server.DefaultServerFactory;
-import io.dropwizard.core.server.SimpleServerFactory;
-import io.dropwizard.core.setup.Bootstrap;
-import io.dropwizard.core.setup.Environment;
+import io.dropwizard.Application;
+import io.dropwizard.server.DefaultServerFactory;
+import io.dropwizard.server.SimpleServerFactory;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
 import io.dropwizard.jetty.ConnectorFactory;
 import io.dropwizard.jetty.HttpConnectorFactory;
 
