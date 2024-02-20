@@ -1,4 +1,4 @@
-[![Build](https://github.com/alexdlaird/java-ngrok-example-dropwizard/actions/workflows/build.yml/badge.svg)](https://github.com/alexdlaird/java-ngrok-example-dropwizard/actions/workflows/build.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/alexdlaird/java-ngrok-example-dropwizard/build.yml)](https://github.com/alexdlaird/java-ngrok-example-dropwizard/actions/workflows/build.yml)
 ![GitHub License](https://img.shields.io/github/license/alexdlaird/java-ngrok-example-dropwizard)
 
 # java-ngrok Example - Dropwizard
