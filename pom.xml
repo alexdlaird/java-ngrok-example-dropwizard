@@ -123,7 +123,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.12.1</version>
                 <configuration>
-                    <release>11</release>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -175,9 +176,9 @@
     </reporting>
     <profiles>
         <profile>
-            <id>java11+</id>
+            <id>java8+</id>
             <activation>
-                <jdk>[11,)</jdk>
+                <jdk>[8,)</jdk>
             </activation>
             <properties>
                 <!--
