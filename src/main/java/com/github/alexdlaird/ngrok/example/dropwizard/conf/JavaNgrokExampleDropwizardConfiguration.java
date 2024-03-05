@@ -17,11 +17,21 @@ public class JavaNgrokExampleDropwizardConfiguration extends Configuration {
     @JsonProperty("ngrok")
     private NgrokConfiguration ngrokConfiguration;
 
+    private String publicUrl;
+
     public String getEnvironment() {
         return environment;
     }
 
     public NgrokConfiguration getNgrokConfiguration() {
         return ngrokConfiguration;
+    }
+
+    public String getPublicUrl() {
+        return publicUrl;
+    }
+
+    public void setPublicUrl(String publicUrl) {
+        this.publicUrl = publicUrl;
     }
 }

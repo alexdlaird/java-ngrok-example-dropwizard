@@ -70,7 +70,9 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
             LOGGER.info(String.format("ngrok tunnel \"%s\" -> \"http://127.0.0.1:%d\"", tunnel.getPublicUrl(), port));
 
             // Update any base URLs or webhooks to use the public ngrok URL
-            initWebhooks(tunnel.getPublicUrl());
+            final String publicUrl = tunnel.getPublicUrl();
+            configuration.setPublicUrl(publicUrl);
+            initWebhooks(publicUrl);
         }
 
         // ... The rest of our Dropwizard application

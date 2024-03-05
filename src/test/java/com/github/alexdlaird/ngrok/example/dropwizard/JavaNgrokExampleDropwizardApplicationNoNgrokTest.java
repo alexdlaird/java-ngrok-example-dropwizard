@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @ExtendWith(DropwizardExtensionsSupport.class)
 public class JavaNgrokExampleDropwizardApplicationNoNgrokTest {
@@ -35,5 +36,6 @@ public class JavaNgrokExampleDropwizardApplicationNoNgrokTest {
                 .request()
                 .get();
         assertEquals(response.getStatus(), 200);
+        assertNull(dropwizardAppExtension.getConfiguration().getPublicUrl());
     }
 }
