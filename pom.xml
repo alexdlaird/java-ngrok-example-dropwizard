@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <dropwizard.version>4.0.11</dropwizard.version>
+        <dropwizard.version>4.0.12</dropwizard.version>
         <java-ngrok.version>2.3.5</java-ngrok.version>
         <mainClass>com.github.alexdlaird.ngrok.example.dropwizard.JavaNgrokExampleDropwizardApplication</mainClass>
     </properties>
