@@ -2,7 +2,7 @@
 
 SHELL := /usr/bin/env bash
 
-all: build
+all: test
 
 install: build
 
