@@ -51,8 +51,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
                     final Environment environment) {
         // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
         if (configuration.getEnvironment().equals("dev") &&
-                configuration.getNgrokConfiguration().isEnabled() &&
-                isNotBlank(System.getenv("NGROK_AUTHTOKEN"))) {
+                configuration.getNgrokConfiguration().isEnabled()) {
             final JavaNgrokConfig javaNgrokConfig = new JavaNgrokConfig.Builder()
                     .withRegion(nonNull(configuration.getNgrokConfiguration().getRegion()) ? Region.valueOf(configuration.getNgrokConfiguration().getRegion().toUpperCase()) : null)
                     .build();
