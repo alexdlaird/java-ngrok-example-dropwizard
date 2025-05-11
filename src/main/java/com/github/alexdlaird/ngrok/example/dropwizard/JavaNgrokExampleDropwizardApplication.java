@@ -25,7 +25,6 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
-import static com.github.alexdlaird.util.StringUtils.isNotBlank;
 
 public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrokExampleDropwizardConfiguration> {
 
@@ -65,11 +64,11 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
                     .withAddr(port)
                     .build();
             final Tunnel tunnel = ngrokClient.connect(createTunnel);
+            final String publicUrl = tunnel.getPublicUrl();
 
-            LOGGER.info(String.format("ngrok tunnel \"%s\" -> \"http://127.0.0.1:%d\"", tunnel.getPublicUrl(), port));
+            LOGGER.info(String.format("ngrok tunnel \"%s\" -> \"http://127.0.0.1:%d\"", publicUrl, port));
 
             // Update any base URLs or webhooks to use the public ngrok URL
-            final String publicUrl = tunnel.getPublicUrl();
             configuration.setPublicUrl(publicUrl);
             initWebhooks(publicUrl);
         }
