@@ -8,10 +8,8 @@ package com.github.alexdlaird.ngrok.example.dropwizard;
 
 import com.github.alexdlaird.ngrok.example.dropwizard.conf.JavaNgrokExampleDropwizardConfiguration;
 import com.github.alexdlaird.ngrok.NgrokClient;
-import com.github.alexdlaird.ngrok.conf.JavaNgrokConfig;
 import com.github.alexdlaird.ngrok.example.dropwizard.healthcheck.ServerHealthCheck;
 import com.github.alexdlaird.ngrok.protocol.CreateTunnel;
-import com.github.alexdlaird.ngrok.protocol.Region;
 import com.github.alexdlaird.ngrok.protocol.Tunnel;
 import io.dropwizard.Application;
 import io.dropwizard.server.DefaultServerFactory;
@@ -23,9 +21,6 @@ import io.dropwizard.jetty.HttpConnectorFactory;
 
 import java.util.logging.Logger;
 import java.util.stream.Stream;
-
-import static java.util.Objects.nonNull;
-import static com.github.alexdlaird.util.StringUtils.isNotBlank;
 
 public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrokExampleDropwizardConfiguration> {
 
@@ -51,14 +46,10 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
                     final Environment environment) {
         // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
         if (configuration.getEnvironment().equals("dev") &&
-                configuration.getNgrokConfiguration().isEnabled() &&
-                isNotBlank(System.getenv("NGROK_AUTHTOKEN"))) {
-            final JavaNgrokConfig javaNgrokConfig = new JavaNgrokConfig.Builder()
-                    .withRegion(nonNull(configuration.getNgrokConfiguration().getRegion()) ? Region.valueOf(configuration.getNgrokConfiguration().getRegion().toUpperCase()) : null)
-                    .build();
+                configuration.getNgrokConfiguration().isEnabled()) {
             final NgrokClient ngrokClient = new NgrokClient.Builder()
-                    .withJavaNgrokConfig(javaNgrokConfig)
                     .build();
+            configuration.getNgrokConfiguration().setNgrokClient(ngrokClient);
 
             final int port = getPort(configuration);
 
@@ -66,11 +57,11 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
                     .withAddr(port)
                     .build();
             final Tunnel tunnel = ngrokClient.connect(createTunnel);
+            final String publicUrl = tunnel.getPublicUrl();
 
-            LOGGER.info(String.format("ngrok tunnel \"%s\" -> \"http://127.0.0.1:%d\"", tunnel.getPublicUrl(), port));
+            LOGGER.info(String.format("ngrok tunnel \"%s\" -> \"http://127.0.0.1:%d\"", publicUrl, port));
 
             // Update any base URLs or webhooks to use the public ngrok URL
-            final String publicUrl = tunnel.getPublicUrl();
             configuration.setPublicUrl(publicUrl);
             initWebhooks(publicUrl);
         }

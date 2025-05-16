@@ -38,7 +38,8 @@ public class JavaNgrokExampleDropwizardApplicationTest {
                         String.format("http://127.0.0.1:%d/healthcheck", dropwizardAppExtension.getAdminPort()))
                 .request()
                 .get();
-        assertEquals(response.getStatus(), 200);
+        assertEquals(200, response.getStatus());
         assertTrue(dropwizardAppExtension.getConfiguration().getPublicUrl().contains("ngrok"));
+        assertTrue(dropwizardAppExtension.getConfiguration().getNgrokConfiguration().getNgrokClient().getNgrokProcess().isRunning());
     }
 }
