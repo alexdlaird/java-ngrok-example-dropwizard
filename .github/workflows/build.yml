@@ -4,9 +4,9 @@ run-name: "Build ${{ github.ref_name }}"
 
 on:
   push:
-    branches: [ main, java8 ]
+    branches: [ main, develop, java8 ]
   pull_request:
-    branches: [ main, java8 ]
+    branches: [ main, develop, java8 ]
   schedule:
     - cron: "0 9 * * *"
 

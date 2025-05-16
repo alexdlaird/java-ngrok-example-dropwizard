@@ -17,15 +17,8 @@ public class NgrokConfiguration {
     @JsonProperty
     private boolean enabled = false;
 
-    @JsonProperty
-    private String region;
-
     public boolean isEnabled() {
         return enabled;
-    }
-
-    public String getRegion() {
-        return region;
     }
 }
 ```
@@ -75,11 +68,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
         // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
         if (configuration.getEnvironment().equals("dev") &&
                 configuration.getNgrokConfiguration().isEnabled()) {
-            final JavaNgrokConfig javaNgrokConfig = new JavaNgrokConfig.Builder()
-                    .withRegion(nonNull(configuration.getNgrokConfiguration().getRegion()) ? Region.valueOf(configuration.getNgrokConfiguration().getRegion().toUpperCase()) : null)
-                    .build();
             final NgrokClient ngrokClient = new NgrokClient.Builder()
-                    .withJavaNgrokConfig(javaNgrokConfig)
                     .build();
 
             final int port = getPort(configuration);
