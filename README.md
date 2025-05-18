@@ -10,7 +10,7 @@ with [Dropwizard](https://www.dropwizard.io/en/latest/index.html).
 
 Create
 a [`NgrokConfiguration`](https://github.com/alexdlaird/java-ngrok-example-dropwizard/blob/main/src/main/java/com/github/alexdlaird/conf/NgrokConfiguration.java)
-class that lets us use the config to enable `ngrok` and pass it some useful parameters.
+class that lets you use the config to enable `ngrok` and pass it some useful parameters.
 
 ```java
 public class NgrokConfiguration {
@@ -24,7 +24,7 @@ public class NgrokConfiguration {
 ```
 
 Then wire this class as a `JsonProperty`
-to [the Dropwizard Configuration for our Application](https://www.dropwizard.io/en/latest/getting-started.html#creating-a-configuration-class).
+to [the Dropwizard Configuration for your Application](https://www.dropwizard.io/en/latest/getting-started.html#creating-a-configuration-class).
 
 ```java
 public class JavaNgrokExampleDropwizardConfiguration extends Configuration {
@@ -44,8 +44,8 @@ public class JavaNgrokExampleDropwizardConfiguration extends Configuration {
 }
 ```
 
-And pass parameters to our Dropwizard application through
-[our config file](https://github.com/alexdlaird/java-ngrok-example-dropwizard/blob/main/config.yml):
+And pass parameters to your Dropwizard application through
+[your config file](https://github.com/alexdlaird/java-ngrok-example-dropwizard/blob/main/config.yml):
 
 ```yaml
 ngrok:
@@ -54,7 +54,7 @@ ngrok:
 
 ## Application Integration
 
-If `ngrok.enabled` config flag is set, we want to initialize `java-ngrok` when Dropwizard is booting. An easy place to do
+If `ngrok.enabled` config flag is set, `java-ngrok` will be initialized when Dropwizard is booting. An easy place to do
 this is in the `run()` method of [the Application](https://github.com/alexdlaird/java-ngrok-example-dropwizard/blob/main/src/main/java/com/github/alexdlaird/JavaNgrokExampleDropwizardApplication.java).
 
 ```java
@@ -103,7 +103,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
         // Update inbound traffic via APIs to use the public-facing ngrok URL
     }
 
-    // ... The rest of our Dropwizard application
+    // ... The rest of your Dropwizard application
 }
 ```
 
