@@ -44,7 +44,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
     @Override
     public void run(final JavaNgrokExampleDropwizardConfiguration configuration,
                     final Environment environment) {
-        // java-ngrok will only be installed, and should only ever be initialized, in a dev environment
+        // Only install and initialize ngrok if we're actually using it
         if (configuration.getEnvironment().equals("dev") &&
                 configuration.getNgrokConfiguration().isEnabled()) {
             final NgrokClient ngrokClient = new NgrokClient.Builder()
@@ -66,7 +66,7 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
             initWebhooks(publicUrl);
         }
 
-        // ... The rest of our Dropwizard application
+        // ... Implement the rest of our Dropwizard application
     }
 
     private int getPort(JavaNgrokExampleDropwizardConfiguration configuration) {
@@ -82,6 +82,6 @@ public class JavaNgrokExampleDropwizardApplication extends Application<JavaNgrok
     }
 
     private void initWebhooks(final String publicUrl) {
-        // Update inbound traffic via APIs to use the public-facing ngrok URL
+        // ... Implement updates necessary so inbound traffic uses the public-facing ngrok URL
     }
 }
