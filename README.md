@@ -3,8 +3,8 @@
 
 # java-ngrok Example - Dropwizard
 
-This is an example project that shows how to easily integrate [`java-ngrok`](https://github.com/alexdlaird/java-ngrok)
-with [Dropwizard](https://www.dropwizard.io/en/latest/index.html), as [summarized in the docs](https://alexdlaird.github.io/java-ngrok/integration/#dropwizard).
+This is an example project that shows how to easily integrate [`java-ngrok`](https://java-ngrok.alexlaird.com/)
+with [Dropwizard](https://www.dropwizard.io/en/latest/index.html), as [summarized in the docs](https://java-ngrok.alexlaird.com/integration/#dropwizard).
 
 ## Running
 
